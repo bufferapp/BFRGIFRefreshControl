@@ -1,0 +1,9 @@
+platform :ios, '8.0'
+
+inhibit_all_warnings!
+
+target ‘GifRefresh’ do
+	pod 'Masonry', :git => 'https://github.com/Masonry/Masonry.git'
+	pod 'FLAnimatedImage', '~> 1.0'
+end
+
