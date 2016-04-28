@@ -10,9 +10,6 @@
 #import "Masonry.h"
 #import <FLAnimatedImage/FLAnimatedImage.h>
 
-//TODO: Different initializer if gif isn't in app bundle, us NSData or a URL
-//TODO: Offset must be tweakable
-
 @interface BFRGifRefreshControl()
 @property (nonatomic, getter=isAnimating) BOOL animating;
 @property (strong, nonatomic) UIImageView *initialImage;
@@ -24,7 +21,6 @@
 
 #pragma mark - Initializers
 - (instancetype)initWithGifFileName:(NSString *)refreshingGifName refreshAction:(void (^)())refreshAction {
-    //Get the gif from the app bundle
     NSString *filePath = [[NSBundle mainBundle] pathForResource:refreshingGifName ofType:@".gif"];
     NSURL *gifURL = [NSURL fileURLWithPath:filePath];
     NSData *gifData = [NSData dataWithContentsOfURL:gifURL];
@@ -41,7 +37,6 @@
         self.refreshingDataGif.animatedImage = firstGif;
         self.refreshingDataGif.contentMode = UIViewContentModeScaleAspectFit;
         
-        //Set up our initial image from the first frame in the gif
         self.initialImage = [[UIImageView alloc] initWithImage:firstGif.posterImage];
         self.initialImage.contentMode = UIViewContentModeScaleAspectFit;
         
@@ -104,4 +99,5 @@
         }completion:nil];
     }
 }
+
 @end
