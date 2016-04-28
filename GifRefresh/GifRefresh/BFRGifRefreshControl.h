@@ -11,7 +11,7 @@
 @interface BFRGifRefreshControl : UIControl
 
 @property (assign, nonatomic) CGFloat dataRefreshOffsetThreshold; //Triggers the handler
-@property (assign, nonatomic) CGFloat dataRefreshingGifOffset; //Offset for the gif while data loads
+@property (assign, nonatomic) CGFloat dataRefreshingGifYInset; //Offset for the gif while data loads
 @property (assign, nonatomic) CGFloat dataLoadedYInset; //Inset to set the gif back to when data loads
 @property (assign, nonatomic) CGFloat dataLoadedYOffset; //Offset of the sv to be at when data loads
 

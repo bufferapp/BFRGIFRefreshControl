@@ -76,7 +76,7 @@
         self.initialImage.hidden = YES;
         
         UIEdgeInsets loadingInsets = scrollView.contentInset;
-        loadingInsets.top = self.dataRefreshingGifOffset;
+        loadingInsets.top = self.dataRefreshingGifYInset;
         
         //Avoid iOS 8 "jump" when setting insets
         CGPoint contentOffset = scrollView.contentOffset;
