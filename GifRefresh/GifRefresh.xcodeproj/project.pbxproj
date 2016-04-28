@@ -1,0 +1,407 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A3A007A579B3A55C418A59A /* libPods-GifRefresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD035F9BC30354D9EC97243 /* libPods-GifRefresh.a */; };
+		17F29C6D1CD2544D0063BA48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C6C1CD2544D0063BA48 /* main.m */; };
+		17F29C701CD2544D0063BA48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C6F1CD2544D0063BA48 /* AppDelegate.m */; };
+		17F29C781CD2544D0063BA48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F29C771CD2544D0063BA48 /* Assets.xcassets */; };
+		17F29C7B1CD2544D0063BA48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F29C791CD2544D0063BA48 /* LaunchScreen.storyboard */; };
+		17F29C851CD255C00063BA48 /* BFRGifRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C841CD255C00063BA48 /* BFRGifRefreshControl.m */; };
+		17F29C871CD256EF0063BA48 /* pull-to-refresh@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 17F29C861CD256EF0063BA48 /* pull-to-refresh@2x.gif */; };
+		17F29C901CD25B300063BA48 /* DemoBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C8F1CD25B300063BA48 /* DemoBaseTableViewController.m */; };
+		17F29C931CD25DAD0063BA48 /* GifFromBundleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C921CD25DAD0063BA48 /* GifFromBundleTableViewController.m */; };
+		17F29C961CD25DD20063BA48 /* GifFromURLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C951CD25DD20063BA48 /* GifFromURLTableViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0AD035F9BC30354D9EC97243 /* libPods-GifRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GifRefresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17F29C681CD2544D0063BA48 /* GifRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17F29C6C1CD2544D0063BA48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17F29C6E1CD2544D0063BA48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		17F29C6F1CD2544D0063BA48 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		17F29C771CD2544D0063BA48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17F29C7A1CD2544D0063BA48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		17F29C7C1CD2544D0063BA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17F29C831CD255C00063BA48 /* BFRGifRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRGifRefreshControl.h; sourceTree = "<group>"; };
+		17F29C841CD255C00063BA48 /* BFRGifRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRGifRefreshControl.m; sourceTree = "<group>"; };
+		17F29C861CD256EF0063BA48 /* pull-to-refresh@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "pull-to-refresh@2x.gif"; sourceTree = "<group>"; };
+		17F29C8E1CD25B300063BA48 /* DemoBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoBaseTableViewController.h; sourceTree = "<group>"; };
+		17F29C8F1CD25B300063BA48 /* DemoBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoBaseTableViewController.m; sourceTree = "<group>"; };
+		17F29C911CD25DAD0063BA48 /* GifFromBundleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifFromBundleTableViewController.h; sourceTree = "<group>"; };
+		17F29C921CD25DAD0063BA48 /* GifFromBundleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifFromBundleTableViewController.m; sourceTree = "<group>"; };
+		17F29C941CD25DD20063BA48 /* GifFromURLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifFromURLTableViewController.h; sourceTree = "<group>"; };
+		17F29C951CD25DD20063BA48 /* GifFromURLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifFromURLTableViewController.m; sourceTree = "<group>"; };
+		9B1CDE463F2D3BD513EB42AE /* Pods-GifRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GifRefresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-GifRefresh/Pods-GifRefresh.release.xcconfig"; sourceTree = "<group>"; };
+		C28A98C8A30B9B5635C56471 /* Pods-GifRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GifRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GifRefresh/Pods-GifRefresh.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17F29C651CD2544D0063BA48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3A007A579B3A55C418A59A /* libPods-GifRefresh.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17F29C5F1CD2544D0063BA48 = {
+			isa = PBXGroup;
+			children = (
+				17F29C6A1CD2544D0063BA48 /* GifRefresh */,
+				17F29C691CD2544D0063BA48 /* Products */,
+				7CFAAF526643AD7A3FAA6B4E /* Pods */,
+				4B8D427CA4D3E3DAA061EF68 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		17F29C691CD2544D0063BA48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17F29C681CD2544D0063BA48 /* GifRefresh.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17F29C6A1CD2544D0063BA48 /* GifRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				17F29C831CD255C00063BA48 /* BFRGifRefreshControl.h */,
+				17F29C841CD255C00063BA48 /* BFRGifRefreshControl.m */,
+				17F29C821CD2545A0063BA48 /* Demo */,
+			);
+			path = GifRefresh;
+			sourceTree = "<group>";
+		};
+		17F29C6B1CD2544D0063BA48 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17F29C6C1CD2544D0063BA48 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17F29C821CD2545A0063BA48 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				17F29C861CD256EF0063BA48 /* pull-to-refresh@2x.gif */,
+				17F29C6E1CD2544D0063BA48 /* AppDelegate.h */,
+				17F29C6F1CD2544D0063BA48 /* AppDelegate.m */,
+				17F29C771CD2544D0063BA48 /* Assets.xcassets */,
+				17F29C791CD2544D0063BA48 /* LaunchScreen.storyboard */,
+				17F29C7C1CD2544D0063BA48 /* Info.plist */,
+				17F29C6B1CD2544D0063BA48 /* Supporting Files */,
+				17F29C8E1CD25B300063BA48 /* DemoBaseTableViewController.h */,
+				17F29C8F1CD25B300063BA48 /* DemoBaseTableViewController.m */,
+				17F29C911CD25DAD0063BA48 /* GifFromBundleTableViewController.h */,
+				17F29C921CD25DAD0063BA48 /* GifFromBundleTableViewController.m */,
+				17F29C941CD25DD20063BA48 /* GifFromURLTableViewController.h */,
+				17F29C951CD25DD20063BA48 /* GifFromURLTableViewController.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		4B8D427CA4D3E3DAA061EF68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0AD035F9BC30354D9EC97243 /* libPods-GifRefresh.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7CFAAF526643AD7A3FAA6B4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C28A98C8A30B9B5635C56471 /* Pods-GifRefresh.debug.xcconfig */,
+				9B1CDE463F2D3BD513EB42AE /* Pods-GifRefresh.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17F29C671CD2544D0063BA48 /* GifRefresh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17F29C7F1CD2544D0063BA48 /* Build configuration list for PBXNativeTarget "GifRefresh" */;
+			buildPhases = (
+				5369CF54A68D5FA8118C1D29 /* Check Pods Manifest.lock */,
+				17F29C641CD2544D0063BA48 /* Sources */,
+				17F29C651CD2544D0063BA48 /* Frameworks */,
+				17F29C661CD2544D0063BA48 /* Resources */,
+				B8D22FE07DC9ECBA99156839 /* Embed Pods Frameworks */,
+				AB1E83079B14828CE03AC9EC /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GifRefresh;
+			productName = GifRefresh;
+			productReference = 17F29C681CD2544D0063BA48 /* GifRefresh.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17F29C601CD2544D0063BA48 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Buffer, LLC";
+				TargetAttributes = {
+					17F29C671CD2544D0063BA48 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 17F29C631CD2544D0063BA48 /* Build configuration list for PBXProject "GifRefresh" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 17F29C5F1CD2544D0063BA48;
+			productRefGroup = 17F29C691CD2544D0063BA48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17F29C671CD2544D0063BA48 /* GifRefresh */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17F29C661CD2544D0063BA48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17F29C871CD256EF0063BA48 /* pull-to-refresh@2x.gif in Resources */,
+				17F29C7B1CD2544D0063BA48 /* LaunchScreen.storyboard in Resources */,
+				17F29C781CD2544D0063BA48 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5369CF54A68D5FA8118C1D29 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AB1E83079B14828CE03AC9EC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GifRefresh/Pods-GifRefresh-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8D22FE07DC9ECBA99156839 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GifRefresh/Pods-GifRefresh-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17F29C641CD2544D0063BA48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17F29C851CD255C00063BA48 /* BFRGifRefreshControl.m in Sources */,
+				17F29C701CD2544D0063BA48 /* AppDelegate.m in Sources */,
+				17F29C6D1CD2544D0063BA48 /* main.m in Sources */,
+				17F29C931CD25DAD0063BA48 /* GifFromBundleTableViewController.m in Sources */,
+				17F29C961CD25DD20063BA48 /* GifFromURLTableViewController.m in Sources */,
+				17F29C901CD25B300063BA48 /* DemoBaseTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		17F29C791CD2544D0063BA48 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17F29C7A1CD2544D0063BA48 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		17F29C7D1CD2544D0063BA48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		17F29C7E1CD2544D0063BA48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17F29C801CD2544D0063BA48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C28A98C8A30B9B5635C56471 /* Pods-GifRefresh.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/GifRefresh/Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.buffer.gifrefresh.GifRefresh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17F29C811CD2544D0063BA48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B1CDE463F2D3BD513EB42AE /* Pods-GifRefresh.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/GifRefresh/Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.buffer.gifrefresh.GifRefresh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17F29C631CD2544D0063BA48 /* Build configuration list for PBXProject "GifRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17F29C7D1CD2544D0063BA48 /* Debug */,
+				17F29C7E1CD2544D0063BA48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17F29C7F1CD2544D0063BA48 /* Build configuration list for PBXNativeTarget "GifRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17F29C801CD2544D0063BA48 /* Debug */,
+				17F29C811CD2544D0063BA48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17F29C601CD2544D0063BA48 /* Project object */;
+}

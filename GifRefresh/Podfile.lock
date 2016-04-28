@@ -1,0 +1,22 @@
+PODS:
+  - FLAnimatedImage (1.0.12)
+  - Masonry (1.0.0)
+
+DEPENDENCIES:
+  - FLAnimatedImage (~> 1.0)
+  - Masonry (from `https://github.com/Masonry/Masonry.git`)
+
+EXTERNAL SOURCES:
+  Masonry:
+    :git: https://github.com/Masonry/Masonry.git
+
+CHECKOUT OPTIONS:
+  Masonry:
+    :commit: dee6d8d5dd1b74e32a6f0f11edfc7a8005256609
+    :git: https://github.com/Masonry/Masonry.git
+
+SPEC CHECKSUMS:
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
+
+COCOAPODS: 0.39.0
