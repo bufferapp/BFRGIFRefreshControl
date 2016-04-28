@@ -10,7 +10,13 @@
 
 @interface BFRGifRefreshControl : UIControl
 
-- (instancetype)initWithRefreshingDataGif:(NSString *)refreshingGifName completion:(void (^)())completion;
+@property (assign, nonatomic) CGFloat dataRefreshOffsetThreshold; //Triggers the handler
+@property (assign, nonatomic) CGFloat dataRefreshingGifOffset; //Offset for the gif while data loads
+@property (assign, nonatomic) CGFloat dataLoadedYInset; //Inset to set the gif back to when data loads
+@property (assign, nonatomic) CGFloat dataLoadedYOffset; //Offset of the sv to be at when data loads
+
+- (instancetype)initWithGifFileName:(NSString *)refreshingGifName refreshAction:(void (^)())refreshAction;
+- (instancetype)initWithGifData:(NSData *)refreshingGifData refreshAction:(void (^)())refreshAction;
 - (void)containingScrollViewDidEndDragging:(UIScrollView *)scrollView;
 - (void)stopAnimating:(UIScrollView *)scrollView;
 @end
