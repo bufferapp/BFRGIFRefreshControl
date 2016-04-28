@@ -29,7 +29,7 @@
             
             //Configure offset values - see property documentation for more information
             self.gifRefresh.dataRefreshOffsetThreshold = 100.0f; //Trigger refresh after user has scrolled this far
-            self.gifRefresh.dataRefreshingGifYInset = 115.0f; //Where we want the gif to "hang out" while it performs the block
+            self.gifRefresh.dataRefreshingGifYInset = 100.0f; //Where we want the gif to "hang out" while it performs the block
             self.gifRefresh.dataLoadedYInset = 64.0f; //Account for navbar
             self.gifRefresh.dataLoadedYOffset = -64.0f; //Account for navbar
             
