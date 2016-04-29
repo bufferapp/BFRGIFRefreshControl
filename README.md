@@ -45,7 +45,7 @@ If you want some additional context, just fire up the demo project and take a pe
 Those are all valid questions! The BFRGifRefreshControl was designed to be usable no matter the situation you find youself in. We could make assumptions or controll the `UIScrollView` via a category, but
 every developer faces different situations and those assumptions could sometimes be wrong or lead to some tricky debugging 🐛. 
 
-It's true that most scenarios call for direction opposite values for the Y inset and offset (i.e. 64 and -64) and that the threshold to trigger a refresh just needs to be the same as the control's height - but that's not 100% always the case. For that reason we've opted for those values to be consciouslly set by the developer 👍
+It's true that most scenarios call for direction opposite values for the Y inset and offset (i.e. 64 and -64) and that the threshold to trigger a refresh just needs to be the same as the control's height - but that's not 100% always the case. For that reason we've opted for those values to be consciously set by the developer 👍
 
 ###Important Note###
 - The constraints are geared for more smaller, "logo" style .gif files (around 50 x 50). Things could certainly be tweaked to accomodate all sizes fairly easily, but it would require a few tweaks 😎.
