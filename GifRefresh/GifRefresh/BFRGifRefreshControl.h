@@ -11,6 +11,12 @@
 @interface BFRGifRefreshControl : UIControl
 
 /**
+ *  If set to YES, the control will not trigger any refresh actions contained in the refreshAction block. The U.I. will be hidden
+ *  as well. Default value is NO.
+ */
+@property (assign, nonatomic, getter=hasDisabledRefresh) BOOL disabledRefresh;
+
+/**
  *  The point at which the user must scroll to or past for the refresh handler to be called.
  */
 @property (assign, nonatomic) CGFloat dataRefreshOffsetThreshold;

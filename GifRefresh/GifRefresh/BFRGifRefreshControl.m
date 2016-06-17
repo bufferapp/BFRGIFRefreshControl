@@ -11,13 +11,22 @@
 #import <FLAnimatedImage/FLAnimatedImage.h>
 
 @interface BFRGifRefreshControl()
+
 @property (nonatomic, getter=isAnimating) BOOL animating;
 @property (strong, nonatomic) UIImageView *initialImage;
 @property (strong, nonatomic) FLAnimatedImageView *refreshingDataGif;
 @property (copy) void (^refreshAction)(void);
+
 @end
 
 @implementation BFRGifRefreshControl
+
+#pragma mark - Setters
+- (void)setDisabledRefresh:(BOOL)disabledRefresh {
+    _disabledRefresh = disabledRefresh;
+    self.initialImage.hidden = disabledRefresh;
+    self.refreshingDataGif.hidden = disabledRefresh;
+}
 
 #pragma mark - Initializers
 - (instancetype)initWithGifFileName:(NSString *)refreshingGifName refreshAction:(void (^)())refreshAction {
@@ -62,6 +71,10 @@
 }
 
 - (void)containingScrollViewDidEndDragging:(UIScrollView *)scrollView {
+    if (self.hasDisabledRefresh) {
+        return;
+    }
+    
     [self.refreshingDataGif stopAnimating];
     
     if (scrollView.contentOffset.y <= -self.dataRefreshOffsetThreshold) {

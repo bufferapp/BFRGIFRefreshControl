@@ -29,6 +29,9 @@
     self.tableView.delegate = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.view addSubview:self.tableView];
+    
+    UIBarButtonItem *toggleDisableBtn = [[UIBarButtonItem alloc] initWithTitle:@"Disable" style:UIBarButtonItemStylePlain target:self action:@selector(toggleRefreshControlEnabled:)];
+    self.navigationItem.leftBarButtonItem = toggleDisableBtn;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -41,6 +44,12 @@
         [self.tableView reloadData];
         [self.gifRefresh stopAnimating:self.tableView];
     });
+}
+
+#pragma mark - Disable Gif Refresh
+- (void)toggleRefreshControlEnabled:(UIBarButtonItem *)sender {
+    self.gifRefresh.disabledRefresh = !self.gifRefresh.hasDisabledRefresh;
+    sender.title = self.gifRefresh.hasDisabledRefresh ? @"Enable" : @"Disable";
 }
 
 #pragma mark - Table view data source
