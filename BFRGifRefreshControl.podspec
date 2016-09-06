@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BFRGifRefreshControl"
-  s.version      = "1.0.0"
+  s.version      = "1.0.2"
   s.summary      = "A simple and lightweigh refresh control."
   s.description  = <<-DESC
   					The BFRGifRefreshControl is an extremely lightweight, unintrusive and configurable way to add a .gif to refreshing actions inside of your iOS app 📱! You have total control over it, and the whole package comes in at just over 100 lines 😃!
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
                        "Humber Aquino" => "humber@bufferapp.com"}
   s.social_media_url = "https://twitter.com/bufferdevs"
   s.platform     = :ios, "9.0"
-  s.source       = { :git => "https://github.com/bufferapp/BFRGIFRefreshControl.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/bufferapp/BFRGIFRefreshControl.git", :tag => "1.0.2" }
   s.source_files  = 'GifRefresh/**/BFRGifRefreshControl.{h,m}'  
   s.framework  = "UIKit"
   s.requires_arc = true
