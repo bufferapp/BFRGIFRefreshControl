@@ -70,4 +70,11 @@
  */
 - (void)stopAnimating:(UIScrollView *)scrollView;
 
+/**
+ *  Changes the .gif image to the specified image fetched via its file name.
+ *
+ *  @param refreshingGifName The string name of the gif's file name.
+ */
+- (void)setGifFilename:(NSString *)refreshingGifName;
+
 @end

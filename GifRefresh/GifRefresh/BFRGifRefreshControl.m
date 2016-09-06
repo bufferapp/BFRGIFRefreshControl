@@ -113,4 +113,14 @@
     }
 }
 
+- (void)setGifFilename:(NSString *)refreshingGifName {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:refreshingGifName ofType:@".gif"];
+    NSURL *gifURL = [NSURL fileURLWithPath:filePath];
+    NSData *gifData = [NSData dataWithContentsOfURL:gifURL];
+    
+    FLAnimatedImage *firstGif = [FLAnimatedImage animatedImageWithGIFData:gifData];
+    self.refreshingDataGif.animatedImage = firstGif;
+    self.initialImage.image = firstGif.posterImage;
+}
+
 @end
