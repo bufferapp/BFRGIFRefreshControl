@@ -94,6 +94,13 @@
             scrollView.contentOffset = contentOffset;
         }completion:^(BOOL done){
             if (self.refreshAction && done) {
+                
+                if ([[NSProcessInfo processInfo] operatingSystemVersion].majorVersion >= 10) {
+                    UINotificationFeedbackGenerator *hapticFeedback = [UINotificationFeedbackGenerator new];
+                    [hapticFeedback prepare];
+                    [hapticFeedback notificationOccurred:UINotificationFeedbackTypeSuccess];
+                }
+    
                 self.refreshAction();
             }
         }];
