@@ -91,7 +91,6 @@
             [self.impactGenerator impactOccurred];
             [self.impactGenerator prepare];
             self.playHapticFeedback = NO;
-            NSLog(@"BFFR Play haptics");
         }
     } else {
         self.playHapticFeedback = YES;
