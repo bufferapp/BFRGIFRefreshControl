@@ -15,6 +15,9 @@
 @property (nonatomic, getter=isAnimating) BOOL animating;
 @property (strong, nonatomic) UIImageView *initialImage;
 @property (strong, nonatomic) FLAnimatedImageView *refreshingDataGif;
+@property (nonatomic, getter=shouldPlayHapticFeedback) BOOL playHapticFeedback;
+@property (strong, nonatomic) UIImpactFeedbackGenerator *impactGenerator;
+@property (nonatomic, getter=isiOS10OrAbove) BOOL iOS10OrAbove;
 @property (copy) void (^refreshAction)(void);
 
 @end
@@ -41,6 +44,13 @@
     self = [super init];
     
     if (self) {
+        self.iOS10OrAbove = ([[NSProcessInfo processInfo] operatingSystemVersion].majorVersion >= 10);
+        
+        if (self.isiOS10OrAbove) {
+            self.playHapticFeedback = YES;
+            self.impactGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+        }
+        
         FLAnimatedImage *firstGif = [FLAnimatedImage animatedImageWithGIFData:refreshingGifData];
         self.refreshingDataGif = [FLAnimatedImageView new];
         self.refreshingDataGif.animatedImage = firstGif;
@@ -68,6 +78,23 @@
     }
     
     return self;
+}
+
+- (void)containingScrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    if (self.isiOS10OrAbove) {
+        [self.impactGenerator prepare];
+    }
+    
+    if (scrollView.contentOffset.y <= -self.dataRefreshOffsetThreshold) {
+        if (self.isiOS10OrAbove && self.shouldPlayHapticFeedback == YES) {
+            [self.impactGenerator impactOccurred];
+            [self.impactGenerator prepare];
+            self.playHapticFeedback = NO;
+        }
+    } else {
+        self.playHapticFeedback = YES;
+    }
 }
 
 - (void)containingScrollViewDidEndDragging:(UIScrollView *)scrollView {

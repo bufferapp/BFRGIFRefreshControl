@@ -34,6 +34,10 @@
     self.navigationItem.leftBarButtonItem = toggleDisableBtn;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.gifRefresh containingScrollViewDidScroll:scrollView];
+}
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     [self.gifRefresh containingScrollViewDidEndDragging:scrollView];
 }
