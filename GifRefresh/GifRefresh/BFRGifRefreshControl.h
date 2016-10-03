@@ -63,6 +63,14 @@
  */
 - (void)containingScrollViewDidEndDragging:(UIScrollView *)scrollView;
 
+
+/**
+ *Checks the @UIScrollView instance offset values to see if they at or past this instance's  @p dataRefreshOffsetThreshold. If so, the refresh control will play haptic feedback.
+ *
+ @param scrollView The @c UIScrollView instance to check offsets against.
+ */
+- (void)containingScrollViewDidScroll:(UIScrollView *)scrollView;
+
 /**
  *  Stops the .gif animation and returns the @c UIScrollView offset and inset Y axis values back to the values set by @p dataLoadedYInset and @p dataLoadedYOffset.
  *
