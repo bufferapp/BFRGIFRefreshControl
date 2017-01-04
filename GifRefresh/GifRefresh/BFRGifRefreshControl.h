@@ -11,6 +11,11 @@
 @interface BFRGifRefreshControl : UIControl
 
 /**
+ *  Whether the control is currently animating.
+ */
+@property (nonatomic, getter=isAnimating) BOOL animating;
+
+/**
  *  If set to YES, the control will not trigger any refresh actions contained in the refreshAction block. The U.I. will be hidden
  *  as well. Default value is NO.
  */

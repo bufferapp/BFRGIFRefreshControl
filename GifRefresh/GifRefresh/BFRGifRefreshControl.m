@@ -12,7 +12,6 @@
 
 @interface BFRGifRefreshControl()
 
-@property (nonatomic, getter=isAnimating) BOOL animating;
 @property (strong, nonatomic) UIImageView *initialImage;
 @property (strong, nonatomic) FLAnimatedImageView *refreshingDataGif;
 @property (nonatomic, getter=shouldPlayHapticFeedback) BOOL playHapticFeedback;
