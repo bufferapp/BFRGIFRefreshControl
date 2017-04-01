@@ -1,19 +1,19 @@
-#BFRGifRefreshControl#
+# BFRGifRefreshControl
 
 ![Demo](https://s3.amazonaws.com/f.cl.ly/items/2H053X262o351Z122O3M/Screen%20Recording%202016-04-28%20at%2012.55%20PM.gif?v=2cc44e39)
 
 [![CocoaPods](https://img.shields.io/cocoapods/p/BFRGifRefreshControl.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/v/BFRGifRefreshControl.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/l/BFRGifRefreshControl.svg)]()
 
-###Summary###
+### Summary
 The BFRGifRefreshControl is an extremely lightweight, unintrusive and configurable way to add a .gif to refreshing actions inside of your iOS app 📱! You have total control over it, and the whole package comes in at just over 100 lines 😃!
 
-###Installation###
+### Installation
 The BFRGifRefreshControl is hosted on CocoaPods and is the recommended way to install it:
 ```ruby
 pod 'BFRGifRefreshControl'
 ```
 
-###Quickstart###
+### Quickstart
 To get going, you can either initialize the .gif from your app bundle or via `NSData` which can be retrived from a network call or other means.
 The flow is consists of adding it your table view, setting your desired offset values for your situation and then calling `[refreshControl containingScrollViewDidEndDragging]` from your tableview instance's `scrollViewDidEndDragging:willDecelerate:`.
 
@@ -47,20 +47,19 @@ every developer faces different situations and those assumptions could sometimes
 
 It's true that most scenarios call for direct opposite values for the Y inset and offset (i.e. 64 and -64) and that the threshold to trigger a refresh just needs to be the same as the control's height - but that's not 100% always the case. For that reason we've opted for those values to be consciously set by the developer 👍
 
-###Important Note###
+### Important Note
 - The constraints are geared for more smaller, "logo" style .gif files (around 50 x 50). Things could certainly be changed to accomodate all sizes fairly easily, but it would require a few tweaks 😎.
 
-###Going Forward###
+### Going Forward
 We regularly maintain this code, and you can also rest assured that it's been battle tested against thousands of users in production 👍. That said, we get things wrong from time to time - so feel free to open an issue for anything you spot!
 
 We are always happy to talk shop, so feel free to give us a shout on Twitter:
 
 + Andy - [@ay8s](http://www.twitter.com/ay8s)
 + Jordan - [@jordanmorgan10](http://www.twitter.com/jordanmorgan10)
-+ Humber -[@goku2](http://www.twitter.com/goku2)
 
 Or, hey - why not work on the BFRGifRefreshControl and get paid for it!? [We're hiring](http://www.buffer.com/journey)!
 
 - - -
-######Licence######
+#### Licence
 _This project uses MIT License._
