@@ -56,6 +56,7 @@
         self.refreshingDataGif.contentMode = UIViewContentModeScaleAspectFit;
         
         self.initialImage = [[UIImageView alloc] initWithImage:firstGif.posterImage];
+        self.initialImage.backgroundColor = [UIColor redColor];
         self.initialImage.contentMode = UIViewContentModeScaleAspectFit;
         
         [self addSubview:self.initialImage];
@@ -74,6 +75,8 @@
         [self.refreshingDataGif mas_makeConstraints:^(MASConstraintMaker *make){
             make.edges.equalTo(self.initialImage);
         }];
+        
+        self.initialImage.alpha = 0.0f;
     }
     
     return self;
@@ -83,6 +86,27 @@
     
     if (self.isiOS10OrAbove) {
         [self.impactGenerator prepare];
+    }
+    
+    // If the refresh control has traveled past the bottom of the trigger view plsu the offset, trigger the action
+    CGPoint gifTranslatedOrigin = [self.initialImage convertPoint:self.initialImage.bounds.origin toView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
+    CGPoint targetTranslatedOrigin = [self.triggerView convertPoint:self.triggerView.bounds.origin toView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
+    
+    CGFloat bottomGif = gifTranslatedOrigin.y + self.initialImage.frame.size.height;
+    CGFloat bottomTriggerView = targetTranslatedOrigin.y + self.triggerView.frame.size.height;
+    
+    
+    NSLog(@"B7: Distance%f",gifTranslatedOrigin.y - bottomTriggerView);
+    
+    //TODO: Right now, this calculates the % complete only when the whole gif image is below the trigger view. Need to make the alpha start changing once the initial view is below the trigger view at all, then set the alpha == to the distance left to travel
+    if (bottomGif >= bottomTriggerView) {
+        CGFloat distanceFromTriggerViewBottom = gifTranslatedOrigin.y - bottomTriggerView;
+        CGFloat percentComplete = (distanceFromTriggerViewBottom/self.loadingOffset) * 1;
+        NSLog(@"B7: percent complete%f",percentComplete);
+      //  BOOL triggerRefresh = percentComplete >= 1;
+        self.initialImage.alpha = percentComplete;
+    } else {
+        self.initialImage.alpha = 0.0f;
     }
     
     if (scrollView.contentOffset.y <= -self.dataRefreshOffsetThreshold) {

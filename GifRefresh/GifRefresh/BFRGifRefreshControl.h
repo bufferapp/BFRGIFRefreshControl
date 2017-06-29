@@ -41,6 +41,9 @@
  */
 @property (assign, nonatomic) CGFloat dataLoadedYOffset;
 
+@property (weak, nonatomic) __kindof UIView *triggerView;
+@property (assign, nonatomic) CGFloat loadingOffset;
+
 /**
  *  Initializes an instance of this class and sets the .gif from the file name provided residing in the app's bundle.
  *

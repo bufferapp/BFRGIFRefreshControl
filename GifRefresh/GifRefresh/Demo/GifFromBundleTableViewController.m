@@ -31,6 +31,10 @@
     
     [self.tableView addSubview:self.gifRefresh];
     self.gifRefresh.frame = CGRectMake(0, -40, self.view.bounds.size.width, 20);
+    
+    // TESTING
+    self.gifRefresh.triggerView = self.navigationController.navigationBar;
+    self.gifRefresh.loadingOffset = 44;
 }
 
 @end
