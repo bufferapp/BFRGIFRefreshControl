@@ -35,18 +35,18 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self.gifRefresh containingScrollViewDidScroll:scrollView];
+    [self.gifRefresh containingScrollViewDidScroll];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    [self.gifRefresh containingScrollViewDidEndDragging:scrollView];
+    [self.gifRefresh containingScrollViewDidEndDragging];
 }
 
 - (void)performFakeDataRefresh {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.fakeDatasource addObject:[NSNumber numberWithInteger:self.fakeDatasource.count + 1]];
         [self.tableView reloadData];
-        [self.gifRefresh stopAnimating:self.tableView];
+        [self.gifRefresh stopAnimating];
     });
 }
 

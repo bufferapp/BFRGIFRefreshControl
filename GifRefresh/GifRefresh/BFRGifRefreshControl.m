@@ -16,14 +16,19 @@
 @property (strong, nonatomic) FLAnimatedImageView *refreshingDataGif;
 @property (nonatomic, getter=shouldPlayHapticFeedback) BOOL playHapticFeedback;
 @property (strong, nonatomic) UIImpactFeedbackGenerator *impactGenerator;
-@property (nonatomic, getter=isiOS10OrAbove) BOOL iOS10OrAbove;
 @property (copy) void (^refreshAction)(void);
+@property (nonatomic) UIEdgeInsets initialInsets;
+@property (nonatomic) CGPoint initialOffset;
+@property (weak, nonatomic) UIScrollView *scrollView;
+@property (weak, nonatomic) __kindof UIView *triggerView;
+@property (assign, nonatomic) CGFloat loadingOffset;
 
 @end
 
 @implementation BFRGifRefreshControl
 
 #pragma mark - Setters
+
 - (void)setDisabledRefresh:(BOOL)disabledRefresh {
     _disabledRefresh = disabledRefresh;
     self.initialImage.hidden = disabledRefresh;
@@ -31,26 +36,19 @@
 }
 
 #pragma mark - Initializers
-- (instancetype)initWithGifFileName:(NSString *)refreshingGifName refreshAction:(void (^)())refreshAction {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:refreshingGifName ofType:@".gif"];
-    NSURL *gifURL = [NSURL fileURLWithPath:filePath];
-    NSData *gifData = [NSData dataWithContentsOfURL:gifURL];
-    
-    return [[BFRGifRefreshControl alloc] initWithGifData:gifData refreshAction:refreshAction];
-}
 
-- (instancetype)initWithGifData:(NSData *)refreshingGifData refreshAction:(void (^)())refreshAction {
+- (instancetype)initWithGifFileName:(NSString *)refreshingGifName scrollView:(UIScrollView *)scrollView triggerView:(__kindof UIView *)triggerView refreshAction:(void (^)())refreshAction {
     self = [super init];
     
     if (self) {
-        self.iOS10OrAbove = ([[NSProcessInfo processInfo] operatingSystemVersion].majorVersion >= 10);
+        self.playHapticFeedback = YES;
+        self.impactGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
         
-        if (self.isiOS10OrAbove) {
-            self.playHapticFeedback = YES;
-            self.impactGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
-        }
-        
-        FLAnimatedImage *firstGif = [FLAnimatedImage animatedImageWithGIFData:refreshingGifData];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:refreshingGifName ofType:@".gif"];
+        NSURL *gifURL = [NSURL fileURLWithPath:filePath];
+        NSData *gifData = [NSData dataWithContentsOfURL:gifURL];
+
+        FLAnimatedImage *firstGif = [FLAnimatedImage animatedImageWithGIFData:gifData];
         self.refreshingDataGif = [FLAnimatedImageView new];
         self.refreshingDataGif.animatedImage = firstGif;
         self.refreshingDataGif.contentMode = UIViewContentModeScaleAspectFit;
@@ -67,7 +65,7 @@
         
         [self.initialImage mas_makeConstraints:^(MASConstraintMaker *make){
             make.centerX.equalTo(self.mas_centerX);
-            make.centerY.equalTo(self.mas_centerY).offset(15);
+            make.centerY.equalTo(self.mas_centerY).offset(10);
             make.width.equalTo(@35);
             make.height.equalTo(@35);
         }];
@@ -76,90 +74,71 @@
             make.edges.equalTo(self.initialImage);
         }];
         
+        self.scrollView = scrollView;
         self.initialImage.alpha = 0.0f;
+        self.initialInsets = scrollView.contentInset;
+        self.initialOffset = scrollView.contentOffset;
+        self.triggerView = triggerView;
+        self.loadingOffset = 36.0f;
     }
     
     return self;
 }
 
-- (void)containingScrollViewDidScroll:(UIScrollView *)scrollView {
+- (void)containingScrollViewDidScroll {
+
+    [self.impactGenerator prepare];
     
-    if (self.isiOS10OrAbove) {
+    self.initialImage.alpha = [self detereminePercentComplete:self.scrollView];
+    
+    if ([self triggerRefresh] && self.shouldPlayHapticFeedback) {
+        [self.impactGenerator impactOccurred];
         [self.impactGenerator prepare];
-    }
-    
-    // If the refresh control has traveled past the bottom of the trigger view plsu the offset, trigger the action
-    CGPoint gifTranslatedOrigin = [self.initialImage convertPoint:self.initialImage.bounds.origin toView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
-    CGPoint targetTranslatedOrigin = [self.triggerView convertPoint:self.triggerView.bounds.origin toView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
-    
-    CGFloat bottomGif = gifTranslatedOrigin.y + self.initialImage.frame.size.height;
-    CGFloat bottomTriggerView = targetTranslatedOrigin.y + self.triggerView.frame.size.height;
-    
-    
-    NSLog(@"B7: Distance%f",gifTranslatedOrigin.y - bottomTriggerView);
-    
-    //TODO: Right now, this calculates the % complete only when the whole gif image is below the trigger view. Need to make the alpha start changing once the initial view is below the trigger view at all, then set the alpha == to the distance left to travel
-    if (bottomGif >= bottomTriggerView) {
-        CGFloat distanceFromTriggerViewBottom = gifTranslatedOrigin.y - bottomTriggerView;
-        CGFloat percentComplete = (distanceFromTriggerViewBottom/self.loadingOffset) * 1;
-        NSLog(@"B7: percent complete%f",percentComplete);
-      //  BOOL triggerRefresh = percentComplete >= 1;
-        self.initialImage.alpha = percentComplete;
-    } else {
-        self.initialImage.alpha = 0.0f;
-    }
-    
-    if (scrollView.contentOffset.y <= -self.dataRefreshOffsetThreshold) {
-        if (self.isiOS10OrAbove && self.shouldPlayHapticFeedback == YES) {
-            [self.impactGenerator impactOccurred];
-            [self.impactGenerator prepare];
-            self.playHapticFeedback = NO;
-        }
-    } else {
-        self.playHapticFeedback = YES;
+        self.playHapticFeedback = NO;
     }
 }
 
-- (void)containingScrollViewDidEndDragging:(UIScrollView *)scrollView {
+- (void)containingScrollViewDidEndDragging {
     if (self.hasDisabledRefresh) {
         return;
     }
     
     [self.refreshingDataGif stopAnimating];
     
-    if (scrollView.contentOffset.y <= -self.dataRefreshOffsetThreshold) {
+    if ([self triggerRefresh]) {
         [self.refreshingDataGif startAnimating];
         self.animating = YES;
         self.refreshingDataGif.hidden = NO;
         self.initialImage.hidden = YES;
         
-        UIEdgeInsets loadingInsets = scrollView.contentInset;
+        UIEdgeInsets loadingInsets = self.scrollView.contentInset;
         loadingInsets.top = self.dataRefreshingGifYInset;
         
         //Avoid iOS 8 "jump" when setting insets
-        CGPoint contentOffset = scrollView.contentOffset;
+        CGPoint contentOffset = self.scrollView.contentOffset;
         
         [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionBeginFromCurrentState animations:^{
-            scrollView.contentInset = loadingInsets;
-            scrollView.contentOffset = contentOffset;
-        }completion:^(BOOL done){
+            self.scrollView.contentInset = loadingInsets;
+            self.scrollView.contentOffset = contentOffset;
+        } completion:^(BOOL done){
             if (self.refreshAction && done) {
                 self.refreshAction();
+                self.playHapticFeedback = YES;
             }
         }];
     }
 }
 
-- (void)stopAnimating:(UIScrollView *)scrollView {
+- (void)stopAnimating {
     if (self.isAnimating) {
         self.refreshingDataGif.hidden = YES;
         self.initialImage.hidden = NO;
         self.animating = NO;
         
         [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionBeginFromCurrentState animations:^{
-            scrollView.contentInset = UIEdgeInsetsMake(self.dataLoadedYInset, 0, 0, 0);
-            scrollView.contentOffset = CGPointMake(0, self.dataLoadedYOffset);
-        }completion:nil];
+            self.scrollView.contentInset = self.initialInsets;
+            self.scrollView.contentOffset = self.initialOffset;
+        } completion:nil];
     }
 }
 
@@ -171,6 +150,43 @@
     FLAnimatedImage *firstGif = [FLAnimatedImage animatedImageWithGIFData:gifData];
     self.refreshingDataGif.animatedImage = firstGif;
     self.initialImage.image = firstGif.posterImage;
+}
+
+#pragma mark - Private Methods
+
+- (CGFloat)detereminePercentComplete:(UIScrollView *)scrollView {
+    CGPoint gifTranslatedOrigin = [self translatedImagePoint];
+    CGPoint targetTranslatedOrigin = [self translatedTriggerViewPoint];
+    
+    CGFloat bottomGif = gifTranslatedOrigin.y + self.initialImage.frame.size.height;
+    CGFloat bottomTriggerView = targetTranslatedOrigin.y + self.triggerView.frame.size.height;
+    
+    if (bottomGif >= bottomTriggerView) {
+        CGFloat startPoint = bottomTriggerView - self.initialImage.bounds.size.height;
+        CGFloat totalPointsNeededToTravel = bottomTriggerView + self.loadingOffset - startPoint;
+        CGFloat pointsTraveled = gifTranslatedOrigin.y - startPoint;
+        CGFloat percentComplete = (pointsTraveled/totalPointsNeededToTravel) * 1;
+        
+        return percentComplete;
+    } else {
+        return 0.0f;
+    }
+}
+
+- (BOOL)triggerRefresh {
+    CGPoint gifTranslatedOrigin = [self translatedImagePoint];
+    CGPoint targetTranslatedOrigin = [self translatedTriggerViewPoint];
+    CGFloat bottomTriggerView = targetTranslatedOrigin.y + self.triggerView.frame.size.height;
+    
+    return (gifTranslatedOrigin.y - bottomTriggerView) >= self.loadingOffset;
+}
+
+- (CGPoint)translatedImagePoint {
+    return [self.initialImage convertPoint:self.initialImage.bounds.origin toView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
+}
+
+- (CGPoint)translatedTriggerViewPoint {
+    return [self.triggerView convertPoint:self.triggerView.bounds.origin toView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
 }
 
 @end
