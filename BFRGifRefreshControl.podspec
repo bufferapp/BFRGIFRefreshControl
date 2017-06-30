@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
                "Jordan Morgan" => "jordan@bufferapp.com",
                        "Humber Aquino" => "humber@bufferapp.com"}
   s.social_media_url = "https://twitter.com/bufferdevs"
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "10.0"
   s.source       = { :git => "https://github.com/bufferapp/BFRGIFRefreshControl.git", :tag => "1.0.6" }
   s.source_files  = 'GifRefresh/**/BFRGifRefreshControl.{h,m}'  
   s.framework  = "UIKit"

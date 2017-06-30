@@ -24,12 +24,11 @@
     NSLog(@"");
     
     self.gifRefresh = [[BFRGifRefreshControl alloc] initWithGifFileName:@"pull-to-refresh@2x" scrollView:self.tableView triggerView:self.navigationController.navigationBar refreshAction:^ {
-        //Calls [self.gifRefresh stopAnimating] in base class after data loads
         [self performFakeDataRefresh];
     }];
     
     
-    self.gifRefresh.dataRefreshingGifYInset = 136.0f; //Where we want the gif to "hang out" while it performs the block
+    self.gifRefresh.dataRefreshingGifYInset = 136.0f; // Where we want the gif to "hang out" while it performs the block
     
     
     [self.tableView addSubview:self.gifRefresh];
