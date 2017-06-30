@@ -28,7 +28,6 @@
         [self performFakeDataRefresh];
     }];
     
-    //Configure offset values - see property documentation for more information
     
     self.gifRefresh.dataRefreshingGifYInset = 136.0f; //Where we want the gif to "hang out" while it performs the block
     

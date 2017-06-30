@@ -10,13 +10,11 @@
 		0A3A007A579B3A55C418A59A /* libPods-GifRefresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD035F9BC30354D9EC97243 /* libPods-GifRefresh.a */; };
 		17F29C6D1CD2544D0063BA48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C6C1CD2544D0063BA48 /* main.m */; };
 		17F29C701CD2544D0063BA48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C6F1CD2544D0063BA48 /* AppDelegate.m */; };
-		17F29C781CD2544D0063BA48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F29C771CD2544D0063BA48 /* Assets.xcassets */; };
 		17F29C7B1CD2544D0063BA48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F29C791CD2544D0063BA48 /* LaunchScreen.storyboard */; };
 		17F29C851CD255C00063BA48 /* BFRGifRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C841CD255C00063BA48 /* BFRGifRefreshControl.m */; };
 		17F29C871CD256EF0063BA48 /* pull-to-refresh@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 17F29C861CD256EF0063BA48 /* pull-to-refresh@2x.gif */; };
 		17F29C901CD25B300063BA48 /* DemoBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C8F1CD25B300063BA48 /* DemoBaseTableViewController.m */; };
 		17F29C931CD25DAD0063BA48 /* GifFromBundleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C921CD25DAD0063BA48 /* GifFromBundleTableViewController.m */; };
-		17F29C961CD25DD20063BA48 /* GifFromURLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F29C951CD25DD20063BA48 /* GifFromURLTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +23,6 @@
 		17F29C6C1CD2544D0063BA48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		17F29C6E1CD2544D0063BA48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		17F29C6F1CD2544D0063BA48 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		17F29C771CD2544D0063BA48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17F29C7A1CD2544D0063BA48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17F29C7C1CD2544D0063BA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F29C831CD255C00063BA48 /* BFRGifRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFRGifRefreshControl.h; path = GifRefresh/BFRGifRefreshControl.h; sourceTree = "<group>"; };
@@ -35,8 +32,6 @@
 		17F29C8F1CD25B300063BA48 /* DemoBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoBaseTableViewController.m; sourceTree = "<group>"; };
 		17F29C911CD25DAD0063BA48 /* GifFromBundleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifFromBundleTableViewController.h; sourceTree = "<group>"; };
 		17F29C921CD25DAD0063BA48 /* GifFromBundleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifFromBundleTableViewController.m; sourceTree = "<group>"; };
-		17F29C941CD25DD20063BA48 /* GifFromURLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifFromURLTableViewController.h; sourceTree = "<group>"; };
-		17F29C951CD25DD20063BA48 /* GifFromURLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifFromURLTableViewController.m; sourceTree = "<group>"; };
 		9B1CDE463F2D3BD513EB42AE /* Pods-GifRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GifRefresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-GifRefresh/Pods-GifRefresh.release.xcconfig"; sourceTree = "<group>"; };
 		C28A98C8A30B9B5635C56471 /* Pods-GifRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GifRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GifRefresh/Pods-GifRefresh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +90,6 @@
 				17F29C861CD256EF0063BA48 /* pull-to-refresh@2x.gif */,
 				17F29C6E1CD2544D0063BA48 /* AppDelegate.h */,
 				17F29C6F1CD2544D0063BA48 /* AppDelegate.m */,
-				17F29C771CD2544D0063BA48 /* Assets.xcassets */,
 				17F29C791CD2544D0063BA48 /* LaunchScreen.storyboard */,
 				17F29C7C1CD2544D0063BA48 /* Info.plist */,
 				17F29C6B1CD2544D0063BA48 /* Supporting Files */,
@@ -103,8 +97,6 @@
 				17F29C8F1CD25B300063BA48 /* DemoBaseTableViewController.m */,
 				17F29C911CD25DAD0063BA48 /* GifFromBundleTableViewController.h */,
 				17F29C921CD25DAD0063BA48 /* GifFromBundleTableViewController.m */,
-				17F29C941CD25DD20063BA48 /* GifFromURLTableViewController.h */,
-				17F29C951CD25DD20063BA48 /* GifFromURLTableViewController.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -189,7 +181,6 @@
 			files = (
 				17F29C871CD256EF0063BA48 /* pull-to-refresh@2x.gif in Resources */,
 				17F29C7B1CD2544D0063BA48 /* LaunchScreen.storyboard in Resources */,
-				17F29C781CD2544D0063BA48 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +243,6 @@
 				17F29C701CD2544D0063BA48 /* AppDelegate.m in Sources */,
 				17F29C6D1CD2544D0063BA48 /* main.m in Sources */,
 				17F29C931CD25DAD0063BA48 /* GifFromBundleTableViewController.m in Sources */,
-				17F29C961CD25DD20063BA48 /* GifFromURLTableViewController.m in Sources */,
 				17F29C901CD25B300063BA48 /* DemoBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
