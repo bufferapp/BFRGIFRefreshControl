@@ -21,7 +21,6 @@
 @property (nonatomic) CGPoint initialOffset;
 @property (weak, nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) __kindof UIView *triggerView;
-@property (assign, nonatomic) CGFloat loadingOffset;
 
 @end
 
@@ -47,14 +46,13 @@
         NSString *filePath = [[NSBundle mainBundle] pathForResource:refreshingGifName ofType:@".gif"];
         NSURL *gifURL = [NSURL fileURLWithPath:filePath];
         NSData *gifData = [NSData dataWithContentsOfURL:gifURL];
-
+        
         FLAnimatedImage *firstGif = [FLAnimatedImage animatedImageWithGIFData:gifData];
         self.refreshingDataGif = [FLAnimatedImageView new];
         self.refreshingDataGif.animatedImage = firstGif;
         self.refreshingDataGif.contentMode = UIViewContentModeScaleAspectFit;
         
         self.initialImage = [[UIImageView alloc] initWithImage:firstGif.posterImage];
-        self.initialImage.backgroundColor = [UIColor redColor];
         self.initialImage.contentMode = UIViewContentModeScaleAspectFit;
         
         [self addSubview:self.initialImage];
@@ -79,14 +77,14 @@
         self.initialInsets = scrollView.contentInset;
         self.initialOffset = scrollView.contentOffset;
         self.triggerView = triggerView;
-        self.loadingOffset = 36.0f;
+        self.loadingOffset = 36.0f; //Default
     }
     
     return self;
 }
 
 - (void)containingScrollViewDidScroll {
-
+    
     [self.impactGenerator prepare];
     
     self.initialImage.alpha = [self detereminePercentComplete:self.scrollView];
@@ -190,3 +188,4 @@
 }
 
 @end
+

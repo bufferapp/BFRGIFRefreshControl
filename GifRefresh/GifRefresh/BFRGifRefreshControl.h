@@ -28,6 +28,11 @@
 @property (assign, nonatomic) CGFloat dataRefreshingGifYInset;
 
 /**
+ *  How far the gif needs to travel past the bottom of the trigger view to kick off a refresh.
+ */
+@property (assign, nonatomic) CGFloat loadingOffset;
+
+/**
  *  Initializes an instance of this class and sets the .gif from the file name provided residing in the app's bundle.
  *
  *  @param refreshingGifName The file name of the gif to load.
@@ -69,3 +74,4 @@
 - (void)setGifFilename:(NSString *)refreshingGifName;
 
 @end
+
