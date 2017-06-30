@@ -14,38 +14,28 @@ pod 'BFRGifRefreshControl'
 ```
 
 ### Quickstart
-To get going, you can either initialize the .gif from your app bundle or via `NSData` which can be retrived from a network call or other means.
-The flow is consists of adding it your table view, setting your desired offset values for your situation and then calling `[refreshControl containingScrollViewDidEndDragging]` from your tableview instance's `scrollViewDidEndDragging:willDecelerate:`.
+To get going, pass in a .gif from your app bundle along with a trigger view and the containing scroll view. Don't worry about any retain cycles here - these are weakly reference. The trigger view is used to determine how far you the want the user to scroll down to kick off a refresh. It's calculated from the bottom of the trigger view, plus self.loadingOffset.
+
+More than likely, the trigger view will be a navigation bar. So, if you pass in a navigation bar as the trigger view, and set the loading offset to 44, the refresh will occur when the gif has scrolled 44 points below the navigation bar.
+
+The flow is consists of adding it your table view, setting your desired offset values for your situation and then calling:
+
+`[refreshControl containingScrollViewDidScroll]` from the passed in scrollview's `scrollViewDidEndDragging:willDecelerate:`.
+`[refreshControl containingScrollViewDidEndDragging]` from the passed in scrollview's `scrollViewDidEndDragging:willDecelerate:`.
 
 
 Here is a quick example:
 
 ```
-self.gifRefresh = [[BFRGifRefreshControl alloc] initWithGifFileName:@"myGif" refreshAction:^ {
-    //Calls [self.gifRefresh stopAnimating] inside of performFakeDataRefresh
+self.gifRefresh = [[BFRGifRefreshControl alloc] initWithGifFileName:@"pull-to-refresh@2x" scrollView:self.tableView triggerView:self.navigationController.navigationBar refreshAction:^ {
     [self performFakeDataRefresh];
 }];
     
-self.gifRefresh.dataRefreshOffsetThreshold = 100.0f; //Trigger refresh after user has scrolled this far
-self.gifRefresh.dataRefreshingGifYInset = 115.0f; //Where we want the gif to "hang out" while it performs the block
-self.gifRefresh.dataLoadedYInset = 64.0f; //Account for navbar
-self.gifRefresh.dataLoadedYOffset = -64.0f; //Account for navbar
+self.gifRefresh.loadingOffset = 44.0f; // Optional, default is 36.0f
+self.gifRefresh.dataRefreshingGifYInset = 115.0f; // Where we want the gif to "hang out" while it performs the block
 ```
 
 If you want some additional context, just fire up the demo project and take a peek 👌! This is the easiest way to see how to fire it up!
-
-**_Wait - that seems like a good bit of configuration! Why?_**
-
-- Is the view controller's `automaticallyAdjustsScrollViewInsets` set to `YES` or `NO`? 
-- Is there a nav bar? 
-- Is the view hierarchy complex and customized? 
-- Perhaps you need an offset larger or smaller for other UI elements?
-- ...etc
-
-Those are all valid questions! The BFRGifRefreshControl was designed to be usable no matter the situation you find youself in. We could make assumptions or controll the `UIScrollView` via a category, but
-every developer faces different situations and those assumptions could sometimes be wrong or lead to some tricky debugging 🐛. 
-
-It's true that most scenarios call for direct opposite values for the Y inset and offset (i.e. 64 and -64) and that the threshold to trigger a refresh just needs to be the same as the control's height - but that's not 100% always the case. For that reason we've opted for those values to be consciously set by the developer 👍
 
 ### Important Note
 - The constraints are geared for more smaller, "logo" style .gif files (around 50 x 50). Things could certainly be changed to accomodate all sizes fairly easily, but it would require a few tweaks 😎.
